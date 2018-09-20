@@ -1,3 +1,5 @@
+import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from '../register/register.component';
 import { NgModule } from '@angular/core';
 
@@ -8,7 +10,9 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 
-
+import { ChartsModule } from 'ng2-charts';
+import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -16,7 +20,9 @@ import { PAGES_ROUTES } from './pages.routes';
         Graficas1Component,
         ProgressComponent,
         DashboardComponent,
-        RegisterComponent
+        IncrementadorComponent,
+        RegisterComponent,
+        GraficaDonaComponent
     ],
     exports: [
         Graficas1Component,
@@ -27,7 +33,10 @@ import { PAGES_ROUTES } from './pages.routes';
     ],
     imports: [
         SharedModule,
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        FormsModule,
+        ChartsModule,
+        CommonModule
     ]
 })
 

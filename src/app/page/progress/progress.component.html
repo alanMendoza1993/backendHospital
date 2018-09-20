@@ -1,3 +1,39 @@
-<p>
-  progress works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Barra de Progreso</h4>
+                This is some text within a card block.
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="progresoA" aria-valuemin="0" aria-valuemax="100" [style.width]="progresoA + '%' "></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" [attr.aria-valuenow]="progresoV" aria-valuemin="0" aria-valuemax="100" [style.width]="progresoV + '%' "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <app-incrementador (cambioValor)="actualizar($event)" [leyenda]="leyendaA" [progreso]="progresoA"></app-incrementador>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+
+                <app-incrementador (cambioValor)="progresoV=$event" [leyenda]="leyendaV" [progreso]="progresoV"></app-incrementador>
+
+
+            </div>
+        </div>
+    </div>
+</div>
