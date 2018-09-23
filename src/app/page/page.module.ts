@@ -13,6 +13,7 @@ import { PAGES_ROUTES } from './pages.routes';
 import { ChartsModule } from 'ng2-charts';
 import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.component';
 import { CommonModule } from '@angular/common';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { CommonModule } from '@angular/common';
         DashboardComponent,
         IncrementadorComponent,
         RegisterComponent,
-        GraficaDonaComponent
+        GraficaDonaComponent,
+        AccountSettingsComponent
     ],
     exports: [
         Graficas1Component,
