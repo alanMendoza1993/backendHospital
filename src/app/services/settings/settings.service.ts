@@ -38,13 +38,14 @@ export class SettingsService {
 
     seleccionar() {
       let nueva = document.getElementsByClassName('selector');
-      for (let r of nueva) {
+      var nuevaN = [].slice.call(nueva);
+      for (let r of nuevaN) {
         document.getElementById(this.ajustes.tema).classList.add('working');
       }
 
 
     }
-
+  }
 
 interface Ajustes {
   temaUrl: string;

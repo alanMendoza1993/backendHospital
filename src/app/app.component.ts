@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SettingsService } from './services/service.index';
+import { promise } from 'protractor';
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,5 @@ import { SettingsService } from './services/service.index';
 export class AppComponent {
 
   constructor( public ajustes: SettingsService) {
-
-  }
+}
 }
