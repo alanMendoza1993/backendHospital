@@ -1,22 +1,38 @@
 // requires
 var express = require('express');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+
 // iniciar Variables
 
 var app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 //conexion
-mongoose.connection.openUri('mongodb://localhost:27017/hospitalDb', (err, res) => {
+mongoose.connection.openUri('mongodb://localhost:27017/hospitalBd', (err, res) => {
     if (err) throw err;
     console.log("Base de datos Online");
 });
 
-//Rutas
-app.get('/', (req, res, next) => {
-    res.status(200).json({
-        ok: true,
-        mensaje: 'peticion realizada exitosamente'
-    });
-});
+//importar rutas
+var hospitalesRoutes = require('./routes/hospitales');
+var loginRoutes = require('./routes/login');
+var medicosRoutes = require('./routes/medicos');
+var appRoutes = require('./routes/routes');
+var usuariosRoutes = require('./routes/usuarios');
+var busquedaRoutes = require('./routes/busqueda');
+//rutas
+app.use('/usuarios', usuariosRoutes);
+app.use('/hospitales', hospitalesRoutes);
+app.use('/login', loginRoutes);
+app.use('/busqueda', busquedaRoutes);
+app.use('/medicos', medicosRoutes);
+app.use('/', appRoutes);
 
 // escuchar
 app.listen(3000, () => {
