@@ -9,38 +9,28 @@ app.get('/coleccion/:tabla/:busqueda', (req, res) => {
     var tabla = req.params.tabla;
     var busqueda = req.params.busqueda;
     var regex = new RegExp(busqueda, 'i');
+    var promesa;
     if (tabla === 'usuarios') {
-        buscarUsuario(busqueda, regex).then(respuesta => {
-            res.status(200).json({
-                ok: true,
-
-                usuario: respuesta
-            });
-        });
+        promesa = buscarUsuario(busqueda, regex);
     } else if (tabla == 'medicos') {
-        buscarMedicos(busqueda, regex).then(respuesta => {
-            res.status(200).json({
-                ok: true,
-
-                Medico: respuesta
-            });
-        });
+        promesa = buscarMedicos(busqueda, regex);
     } else if (tabla == 'hospitales') {
-        buscarMedicos(busqueda, regex).then(respuesta => {
-            res.status(200).json({
-                ok: true,
-
-                Hospital: respuesta
-            });
-        });
+        promesa = buscarMedicos(busqueda, regex);
     } else {
-        res.status(200).json({
+        return res.status(200).json({
             ok: true,
             busqueda,
             tabla,
             Mensaje: "la tabla no es correcta"
         });
     }
+
+    promesa.then(data => {
+        res.status(200).json({
+            ok: true,
+            [tabla]: data
+        });
+    });
 });
 
 
