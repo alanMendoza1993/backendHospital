@@ -88,7 +88,7 @@ app.put('/:id', (req, res) => {
 ////////////////////////////////////////////////////
 //////////GUARDAR___USUARIOS////////////////////////
 ///////////////////////////////////////////////////
-app.post('/', auth, (req, res) => {
+app.post('/', (req, res) => {
     var body = req.body;
 
     var usuario = new Usuario({
