@@ -1,6 +1,5 @@
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { FormsModule } from '@angular/forms';
-import { RegisterComponent } from '../register/register.component';
 import { NgModule } from '@angular/core';
 
 import { Graficas1Component } from './graficas1/graficas1.component';
@@ -24,7 +23,6 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         ProgressComponent,
         DashboardComponent,
         IncrementadorComponent,
-        RegisterComponent,
         GraficaDonaComponent,
         AccountSettingsComponent,
         PromesasComponent,
@@ -34,8 +32,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         Graficas1Component,
         ProgressComponent,
         DashboardComponent,
-        PagesComponent,
-        RegisterComponent
+        PagesComponent
     ],
     imports: [
         SharedModule,
